@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/daiot/.nvm/versions/node/v8.15.1/bin/node /usr/local/bin/yarn build-prod
+  /Users/daiot/.nvm/versions/node/v8.15.1/bin/node /usr/local/bin/yarn build-dev
 
 PATH: 
   /Users/daiot/.nvm/versions/node/v8.15.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/share/dotnet:/opt/X11/bin:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/daiot/.nvm/versions/node/v13.7.0/bin:/Users/daiot/.rvm/bin:/Users/daiot/.rvm/bin
@@ -23,8 +23,8 @@ npm manifest:
           "start": "node src/server/index.js",
           "build": "webpack",
           "build-prod": "webpack --config webpack.prod.js",
-          "build-dev": "webpack --config webpack.dev.js"
-  
+          //old no dev-server "build-dev": "webpack --config webpack.dev.js --watch --info-verbosity verbose"
+          "build-dev": "webpack-dev-server --config webpack.dev.js --open"
       },
       "keywords": [],
       "author": "",
@@ -39,10 +39,9 @@ npm manifest:
           "@babel/core": "^7.9.6",
           "@babel/preset-env": "^7.9.6",
           "babel-loader": "^8.1.0",
-          "html-webpack-plugin": "^4.3.0"
+          "html-webpack-plugin": "^4.3.0",
+          "webpack-dev-server": "^3.11.0"
       }
-  }
-  }
   }
 
 yarn manifest: 
@@ -4511,7 +4510,7 @@ Lockfile:
       yargs-parser "^13.1.2"
 
 Trace: 
-  SyntaxError: /Users/daiot/projects/FEND/fend-webpack-content/package.json: Unexpected token } in JSON at position 739
+  SyntaxError: /Users/daiot/projects/FEND/fend-webpack-content/package.json: Unexpected token / in JSON at position 300
       at JSON.parse (<anonymous>)
       at /usr/local/lib/node_modules/yarn/lib/util/fs.js:554:57
       at Generator.next (<anonymous>)
