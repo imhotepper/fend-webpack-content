@@ -86,9 +86,59 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _js_formHandler__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _js_formHandler__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_js_formHandler__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _js_nameChecker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var _js_nameChecker__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_js_nameChecker__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+console.log(_js_nameChecker__WEBPACK_IMPORTED_MODULE_1__["checkForName"]);
+alert('Alive ....!');
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
-alert('Alive ....!');
+function handleSubmit(event) {
+    event.preventDefault()
+
+    // check what text was put into the form field
+    let formText = document.getElementById('name').value
+    checkForName(formText)
+
+    console.log("::: Form Submitted :::")
+    fetch('http://localhost:8080/test')
+    .then(res => res.json())
+    .then(function(res) {
+        document.getElementById('results').innerHTML = res.message
+    })
+}
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+function checkForName(inputText) {
+    console.log("::: Running checkForName :::", inputText);
+    let names = [
+        "Picard",
+        "Janeway",
+        "Kirk",
+        "Archer",
+        "Georgiou"
+    ]
+
+    if(names.includes(inputText)) {
+        alert("Welcome, Captain!")
+    }
+}
+
 
 /***/ })
 /******/ ]);
